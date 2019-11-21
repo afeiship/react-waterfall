@@ -16,35 +16,47 @@ npm install -S afeiship/react-waterfall
   ```
 2. import js
   ```js
-  import React from 'react';
+  import ReactWaterfall from '../src/main';
   import ReactDOM from 'react-dom';
-  import ReactWaterfall from 'react-waterfall';
-  
-  // your app:
-  class App extends React.Component{
-    render(){
+  import React from 'react';
+  import './assets/style.scss';
+
+  class App extends React.Component {
+    constructor(inProps) {
+      super(inProps);
+      this.state = {
+        items: [
+          { src: 'https://picsum.photos/id/658/200/300', id: '111' },
+          { src: 'https://picsum.photos/id/653/200/100', id: '222' },
+          { src: 'https://picsum.photos/id/112/300/200', id: '333' },
+          { src: 'https://picsum.photos/id/656/500/200', id: '444' },
+          { src: 'https://picsum.photos/id/115/100/120', id: '555' },
+          { src: 'https://picsum.photos/id/621/100/180', id: '666' },
+          { src: 'https://picsum.photos/id/634/160/120', id: '777' },
+        ]
+      };
+    }
+
+    template = ({ item }) => {
       return (
-        <ReactWaterfall />
-      )
+        <div key={item.id} className={`is-item`}>
+          <img width="100%" src={item.src} />
+          <p>Cap = {item.id}</p>
+        </div>
+      );
+    };
+
+    render() {
+      return (
+        <div className="app-container">
+          <ReactWaterfall items={this.state.items} template={this.template} />
+        </div>
+      );
     }
   }
 
-  // render to dom:
-  ReactDOM.render(<App/>, document.getElementById('app'));
+  ReactDOM.render(<App />, document.getElementById('app'));
   ```
 
 ## documentation
 - https://afeiship.github.io/react-waterfall/
-
-## resources
-- https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
-- https://www.valentinog.com/blog/react-webpack-babel/
-- https://jestjs.io/docs/en/tutorial-react#snapshot-testing-with-mocks-enzyme-and-react-16
-- https://testing-library.com/docs/react-testing-library/api
-
-## todos
-- [ ] Add: semver number for every build files.
-- [ ] Add: need output css files.
-- [ ] Add: PWA support for docs.
-- [ ] Add: source.map file for dist(`you can upload for production debug`).
-- [ ] BUG: npm run dev will clean dist.
