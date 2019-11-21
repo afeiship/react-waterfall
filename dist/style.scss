@@ -1,0 +1,16 @@
+$react-waterfall-options: () !default;
+
+.react-waterfall {
+  text-align: justify;
+  &__column {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+}
