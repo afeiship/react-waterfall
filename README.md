@@ -3,7 +3,7 @@
 
 ## install
 ```shell
-npm install -S afeiship/react-waterfall
+npm install -S @feizheng/react-waterfall
 ```
 
 ## properties
