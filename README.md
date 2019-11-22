@@ -1,7 +1,7 @@
 # react-waterfall
 > Waterfall component for react.
 
-## install
+## installation
 ```shell
 npm install -S @feizheng/react-waterfall
 ```
