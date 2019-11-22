@@ -1,5 +1,5 @@
 {
-  "name": "react-waterfall",
+  "name": "@feizheng/react-waterfall",
   "version": "1.0.0",
   "description": "Waterfall component for react.",
   "main": "dist/index.js",
