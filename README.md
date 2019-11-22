@@ -11,7 +11,7 @@ npm install -S afeiship/react-waterfall
 | --------- | ------ | -------------------------------- | ----------------- |
 | className | string | ''                               | Extend className  |
 | items     | array  | []                               | DataSource items  |
-| template  | func   | noop({ item, index, column: i }) | Item template     |
+| template  | func   | noop({ item, index, column }) | Item template     |
 | column    | number | 3                                | The column number |
 
 ## usage
