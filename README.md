@@ -6,6 +6,14 @@
 npm install -S afeiship/react-waterfall
 ```
 
+## properties
+| property  | type   | default | description       |
+| --------- | ------ | ------- | ----------------- |
+| className | string | ''      | Extend className  |
+| items     | array  | []      | DataSource items  |
+| template  | func   | noop    | Item template     |
+| column    | number | 3       | The column number |
+
 ## usage
 1. import css
   ```scss

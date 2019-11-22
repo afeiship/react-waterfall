@@ -13,6 +13,11 @@ body,
 
 .app-container {
   padding: 50px;
+
+  .is-column {
+    width: 200px;
+  }
+
   .is-item {
     margin-bottom: 20px;
     text-align: center;

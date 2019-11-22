@@ -9,33 +9,24 @@ const CLASS_NAME = 'react-waterfall';
 
 export default class extends Component {
   static displayName = CLASS_NAME;
-
-  /*===properties start===*/
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
     template: PropTypes.func,
-    column: PropTypes.shape({
-      size: PropTypes.number,
-      width: PropTypes.number
-    })
+    column: PropTypes.number
   };
 
   static defaultProps = {
     items: [],
     template: noop,
-    column: {
-      size: 3,
-      width: 200
-    }
+    column: 3
   };
-  /*===properties end===*/
 
   get items() {
     const { column, items } = this.props;
     const result = [];
     items.forEach((item, index) => {
-      const idx = index % column.size;
+      const idx = index % column;
       result[idx] = result[idx] || [];
       result[idx].push(item);
     });
@@ -45,12 +36,9 @@ export default class extends Component {
   get children() {
     const { template, column } = this.props;
     const children = [];
-    for (let i = 0; i < column.size; i++) {
+    for (let i = 0; i < column; i++) {
       children.push(
-        <div
-          key={i}
-          className={`${CLASS_NAME}__column`}
-          style={{ width: column.width }}>
+        <div key={i} className={`${CLASS_NAME}__column is-column`}>
           {this.items[i].map((item, index) => {
             return template({
               item,
