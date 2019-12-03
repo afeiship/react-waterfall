@@ -34,17 +34,14 @@ export default class extends Component {
   }
 
   get children() {
-    const { template, column } = this.props;
+    const { template, column, items } = this.props;
     const children = [];
-    for (let i = 0; i < column; i++) {
+    const count = items.length < column ? items.length : column;
+    for (let i = 0; i < count; i++) {
       children.push(
         <div key={i} className={`${CLASS_NAME}__column is-column`}>
           {this.items[i].map((item, index) => {
-            return template({
-              item,
-              index,
-              column: i
-            });
+            return template({ item, index, column: i });
           })}
         </div>,
         '\n'

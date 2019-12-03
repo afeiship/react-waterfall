@@ -10,6 +10,7 @@ Rakefile
 **/node_modules
 test
 __test__
+__tests__
 src
 docs
 build
@@ -18,6 +19,9 @@ public
 tests
 postcss.config.js
 webpack.config.babel.js
+
+jest.config.js
+jest.setup.js
 
 
 
