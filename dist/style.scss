@@ -1,7 +1,17 @@
 $react-waterfall-options: () !default;
 
 .react-waterfall {
-  text-align: justify;
+  $root: &;
+
+  &.is-justify {
+    text-align: justify;
+  }
+  &.is-aside {
+    #{$root}__column + #{$root}__column {
+      margin-left: 10px;
+    }
+  }
+
   &__column {
     display: inline-block;
     vertical-align: top;

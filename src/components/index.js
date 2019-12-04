@@ -22,6 +22,11 @@ export default class extends Component {
     column: 3
   };
 
+  get justify() {
+    const { column, items } = this.props;
+    return items.length >= column;
+  }
+
   get items() {
     const { column, items } = this.props;
     const result = [];
@@ -36,7 +41,7 @@ export default class extends Component {
   get children() {
     const { template, column, items } = this.props;
     const children = [];
-    const count = items.length < column ? items.length : column;
+    const count = !this.justify ? items.length : column;
     for (let i = 0; i < count; i++) {
       children.push(
         <div key={i} className={`${CLASS_NAME}__column is-column`}>
@@ -62,7 +67,12 @@ export default class extends Component {
     return (
       <div
         data-component={CLASS_NAME}
-        className={classNames(CLASS_NAME, className)}
+        className={classNames(
+          { 'is-justify': this.justify },
+          { 'is-aside': !this.justify },
+          CLASS_NAME,
+          className
+        )}
         {...props}>
         {this.children}
       </div>
