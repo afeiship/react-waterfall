@@ -1,6 +1,7 @@
-import ReactWaterfall from '../src/main';
-import ReactDOM from 'react-dom';
+import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactWaterfall from '../src/main';
 import './assets/style.scss';
 
 const items = [
@@ -15,6 +16,7 @@ const items = [
   { src: 'https://picsum.photos/id/102/160/120', id: '999' },
   { src: 'https://picsum.photos/id/103/160/120', id: '100' }
 ];
+
 
 class App extends React.Component {
   constructor(inProps) {
@@ -45,8 +47,11 @@ class App extends React.Component {
   render() {
     const { items, column } = this.state;
     console.log('items:', items);
+
     return (
-      <div className="app-container">
+      <ReactDemokit
+        className="p-3 app-container"
+        url="https://github.com/afeiship/react-waterfall">
         <p>
           <input type="range" max={10} onChange={this.onChange} />
         </p>
@@ -55,7 +60,7 @@ class App extends React.Component {
           items={items}
           template={this.template}
         />
-      </div>
+      </ReactDemokit>
     );
   }
 }
